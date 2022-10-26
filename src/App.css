@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "LED Calculator";
+  src: url(./fonts/LEDCalculator.ttf);
+}
+@font-face {
+  font-family: "Neue Helvetica heavy";
+  src: url(./fonts/Helvetica-Neue-LT-Com-83-Heavy-Extended.ttf);
+}
+@font-face {
+  font-family: "Neue Helvetica black";
+  src: url(./fonts/Helvetica-Neue-LT-Com-83-Heavy-Extended.ttf);
+}
+@font-face {
+  font-family: "Branding SF light";
+  src: url(./fonts/BrandingSF-Light.ttf);
+}
+@font-face {
+  font-family: "Branding SF medium";
+  src: url(./fonts/BrandingSF-Medium.ttf);
+}
+@font-face {
+  font-family: "Branding SF bold";
+  src: url(./fonts/BrandingSF-Bold.ttf);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary-color: #a1d283;
+  --secondary-color: #008753;
+  --calculator: "LED Calculator", cursive;
+  --Neue-Helvetica-heavy: "Neue Helvetica heavy", sans-serif;
+  --Neue-Helvetica-black: "Neue Helvetica black", sans-serif;
+  --Branding-sf-light: "Branding SF light", sans-serif;
+  --Branding-sf-medium: "Branding SF medium", sans-serif;
+  --Branding-sf-bold: "Branding SF bold", sans-serif;
+  --inter: "Inter", sans-serif;
+  --roboto: "Roboto", sans-serif;
+  --poppins: "Poppins", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   color: white;
+  background-color: #252525;
 }
 
-.App-link {
-  color: #61dafb;
+h1,
+h2,
+h3 {
+  font-family: var(--Branding-sf-bold);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button,
+.btn-link {
+  background-color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  font-family: var(--Branding-sf-medium);
+  transition: all 0.4s;
+}
+button:disabled,
+.btn-link:disabled {
+  background-color: rgba(161, 210, 131, 0.19);
+}
+
+@media screen and (min-width: 600px) {
+  button {
+    font-size: 18px;
+    border-radius: 12px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+textarea {
+  border: 1px solid rgba(161, 210, 131, 0.34);
+  background-color: #252525;
+  outline: none;
+  transition: all 0.3s ease-in;
+  width: 100%;
+  color: white;
+  resize: none;
+  font-family: var(--Branding-sf-light);
+}
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.41);
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid rgba(185, 243, 149, 0.6);
+}
+.calculator {
+  font-family: var(--calculator);
 }
