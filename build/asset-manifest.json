@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.695067d2.css",
+    "main.js": "/static/js/main.d68333b3.js",
+    "static/js/787.91d67eb7.chunk.js": "/static/js/787.91d67eb7.chunk.js",
+    "static/media/LEDCalculator.ttf": "/static/media/LEDCalculator.cccf48e3277f82ae79b8.ttf",
+    "static/media/BrandingSF-Bold.ttf": "/static/media/BrandingSF-Bold.a61199b641280c29c470.ttf",
+    "static/media/BrandingSF-Light.ttf": "/static/media/BrandingSF-Light.0bb3c1c6f5a3a2b0c2c2.ttf",
+    "static/media/BrandingSF-Medium.ttf": "/static/media/BrandingSF-Medium.adccef0c0c7526983334.ttf",
+    "static/media/Helvetica-Neue-LT-Com-83-Heavy-Extended.ttf": "/static/media/Helvetica-Neue-LT-Com-83-Heavy-Extended.eb53344f5765c0d19a03.ttf",
+    "static/media/instagram.svg": "/static/media/instagram.eee0bf5997e1efb5d9251c91f4a7a80c.svg",
+    "static/media/twitter.svg": "/static/media/twitter.6d0f5caec28355f1ba0c379f8f1ab39e.svg",
+    "index.html": "/index.html",
+    "static/media/gallery-add.svg": "/static/media/gallery-add.eaeee904c3ea229c5e87614a72359301.svg",
+    "static/media/shopping-cart.svg": "/static/media/shopping-cart.9be0a6a20fe27967735e99d72101bbb8.svg",
+    "static/media/edit-2.svg": "/static/media/edit-2.a209a5817c373a64ca7e75e4dfd0a3cb.svg",
+    "static/media/search-normal.svg": "/static/media/search-normal.acef6290ca15b16cbe270feffc5111f1.svg",
+    "static/media/arrow-left.svg": "/static/media/arrow-left.f46112f07c3bc86c40da6b1d5603e573.svg",
+    "static/media/add.svg": "/static/media/add.d230058af5a82374ef234c41473363ea.svg",
+    "main.695067d2.css.map": "/static/css/main.695067d2.css.map",
+    "main.d68333b3.js.map": "/static/js/main.d68333b3.js.map",
+    "787.91d67eb7.chunk.js.map": "/static/js/787.91d67eb7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.695067d2.css",
+    "static/js/main.d68333b3.js"
+  ]
+}
