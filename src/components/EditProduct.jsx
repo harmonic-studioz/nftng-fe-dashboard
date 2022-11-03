@@ -51,7 +51,7 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
     dispatch(setIsLoading(true));
     try {
       if (upLoadedImg.length) {
-        const res = await BaseApi.patch(
+        await BaseApi.patch(
           `/merchandise/${id}`,
           {
             name: productName,
@@ -164,7 +164,7 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
           <div className={`number ${priceFocus ? "active-border" : null}`}>
             <span>NGN</span>
             <input
-              type="text"
+              type="number"
               placeholder="Price"
               onFocus={() => {
                 setPriceFocus(true);
@@ -177,7 +177,7 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
           <div className={`number ${quatityFocus ? "active-border" : null}`}>
             <span>Quantity</span>
             <input
-              type="text"
+              type="number"
               placeholder="Add numbers"
               onFocus={() => {
                 setQuatityFocus(true);

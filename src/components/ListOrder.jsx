@@ -51,32 +51,36 @@ const ListOrder = ({ setToggleView, itemList }) => {
 };
 
 const OrderItem = ({ setToggleView, item }) => {
-  const [merch, setMerch] = useState("");
+  const [newMerch, setNewMerch] = useState([]);
 
   const dispatch = useDispatch();
   const handler = () => {
     setToggleView(true);
-    dispatch(setViewOrder([merch, item]));
+    dispatch(setViewOrder(newMerch));
   };
 
   useEffect(() => {
-    if (item) {
-      const getMerch = async () => {
+    const getMerch = async () => {
+      if (Object.keys(item).length) {
         try {
-          const res = await baseApi.get(
-            `merchandise/${item.merchandiseItems[0].merchandiseId}`
-          );
-          setMerch(res.data);
+          let arr = [];
+
+          for (let i = 0; i < item?.merchandiseItems.length; i++) {
+            const res1 = await baseApi.get(
+              `merchandise/${item?.merchandiseItems[i].merchandiseId}`
+            );
+            arr.push({ ...item, ...res1.data });
+          }
+          setNewMerch(arr);
         } catch (error) {
           console.log(error);
         }
-      };
+      }
+    };
 
-      getMerch();
-    }
+    getMerch();
   }, [item]);
-
-  return (
+  return newMerch.length ? (
     <Item>
       {/* <div className="title">
           <input type="checkbox" name="" id="" />
@@ -84,24 +88,30 @@ const OrderItem = ({ setToggleView, item }) => {
 
       <div className="title">
         <div className="t-wrap">
-          {merch ? <img src={merch.images[0].url} alt="" /> : null}
-          <span>{merch.name}</span>
+          {newMerch.length ? (
+            <img src={newMerch[0].images[0].url} alt="" />
+          ) : null}
+          <span>
+            {newMerch.length <= 1
+              ? newMerch[0].name
+              : newMerch[0].name + " & more "}
+          </span>
         </div>
       </div>
       <div className="title">
         <span className="status">{item.reference ? "Paid" : "Pending"}</span>
       </div>
       <div className="title">
-        <span>{merch.quantity} in stock</span>
+        <span>{newMerch[0].quantity} in stock</span>
       </div>
       <div className="title">
-        <span>NGN{merch.price}</span>
+        <span>NGN{newMerch[0].totalAmount}</span>
       </div>
       <div className="title " onClick={() => handler()}>
         <span className="detail">View Details</span>
       </div>
     </Item>
-  );
+  ) : null;
 };
 export default ListOrder;
 

@@ -109,6 +109,16 @@ input:focus,
 textarea:focus {
   border: 1px solid rgba(185, 243, 149, 0.6);
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 .calculator {
   font-family: var(--calculator);
 }

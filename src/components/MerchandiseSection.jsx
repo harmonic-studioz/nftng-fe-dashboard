@@ -48,6 +48,7 @@ const Wrap = styled.div`
 
 const GridWrapper = styled.div`
   padding: 40px;
+  min-height: 45vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(auto);

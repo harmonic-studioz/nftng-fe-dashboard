@@ -53,7 +53,7 @@ const Login = () => {
               />
             </div>
             <button
-              disabled={email === "" && password === ""}
+              disabled={email && password ? false : true}
               onClick={handleLog}
             >
               login

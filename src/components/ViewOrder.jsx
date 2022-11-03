@@ -5,46 +5,51 @@ import { selectViewOrder } from "../slices/viewOrderSlice";
 
 const ViewOrder = () => {
   const viewOrder = useSelector(selectViewOrder);
-  const product = viewOrder[0];
-  const client = viewOrder[1];
-  console.log(client);
-
+  const product = viewOrder;
+  const detail = viewOrder[0];
   return (
     <Container>
       <Wrapper>
-        <LeftWrapper>
-          <img
-            src={product.images.length ? product.images[0].url : null}
-            alt=""
-          />
-          <LeftDetail>
-            <div className="context">
-              <p className="title">Merch Name</p>
-              <p className="c-detail">{product.name}</p>
-            </div>
-            <div className="context">
-              <p className="title">Total Amount (Delivery Inclusive)</p>
-              <p className="c-detail">NGN{product.price}</p>
-            </div>
-            <div className="context size">
-              <p className="title">Size & QTY </p>
-              <div className="size-list">
-                {product.sizes.map((d) => (
-                  <p key={d}>{d}</p>
-                ))}
-              </div>
-            </div>
-          </LeftDetail>
-        </LeftWrapper>
+        {product.map((i) => {
+          const merch = i?.merchandiseItems.filter(
+            (m) => m.merchandiseId === i.id
+          );
+          console.log(merch);
+          return (
+            <LeftWrapper key={i.id}>
+              <img src={i.images.length ? i.images[0].url : null} alt="" />
+              <LeftDetail>
+                <div className="context">
+                  <p className="title">Merch Name</p>
+                  <p className="c-detail">{i.name}</p>
+                </div>
+
+                <div className="context size">
+                  <p className="title">Size & QTY </p>
+                  <div className="size-list">
+                    <p>
+                      {merch[0].size} <span>{merch[0].quantity}PC</span>
+                    </p>
+                  </div>
+                </div>
+              </LeftDetail>
+            </LeftWrapper>
+          );
+        })}
+
         <RightWrapper>
+          <div className="context">
+            <p className="title">Total Amount (Delivery Inclusive)</p>
+            <p className="c-detail">NGN{detail.totalAmount}</p>
+          </div>
           <p className="r-header">Address Details</p>
           <p>
-            {client.firstName} {client.lastName}
+            {detail.firstName} {detail.lastName}
           </p>
           <p>
-            {client.town}, {client.state} <br /> {client.phoneNumber}
+            {detail.town}, {detail.state} <br /> +234{detail.phoneNumber}
           </p>
-          <p>{client.email}</p>
+          <p>{detail.email}</p>
         </RightWrapper>
       </Wrapper>
     </Container>
@@ -100,7 +105,6 @@ const LeftDetail = styled.div`
   .context:nth-child(3) {
     margin-top: 20px;
   }
-
   .size-list {
     display: flex;
     font-size: 10px;
@@ -110,7 +114,7 @@ const LeftDetail = styled.div`
 
     p {
       padding: 10px 16px;
-      border: 1px solid rgba(161, 210, 131, 0.22);
+      border: 1px solid var(--primary-color);
       span {
         font-family: var(--Branding-sf-bold);
         margin-left: 4px;
@@ -132,5 +136,20 @@ const RightWrapper = styled.div`
   }
   .r-header {
     font-family: var(--Branding-sf-bold);
+  }
+  .context {
+    .title {
+      font-size: 12px;
+      font-family: var(--Branding-sf-light);
+    }
+
+    .c-detail {
+      font-size: 18px;
+      font-family: var(--Branding-sf-bold);
+      color: var(--primary-color);
+    }
+  }
+  .context:nth-child(3) {
+    margin-top: 20px;
   }
 `;

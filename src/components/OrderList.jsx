@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import arrow from "../img/svg/arrow-left.svg";
 import search from "../img/svg/search-normal.svg";
@@ -16,28 +16,61 @@ const OrderList = () => {
   const [toggleView, setToggleView] = useState(false);
   const [isSearch, setIsSearch] = useState("");
   const [inputFocus, setInputFocus] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const onFocus = () => setInputFocus(true);
   const onBlur = () => setInputFocus(false);
   const [itemList, setItemList] = useState([]);
-  console.log("/order?merchandiseName=" + isSearch);
+  const [orderDetail, setOrderDetail] = useState({});
+  const [pageCount, setPageCount] = useState(1);
+
+  const loadMore = () => {
+    setIsLoading(true);
+    setPageCount((prev) => prev + 1);
+  };
+
+  const hideBtn = () => {
+    if (Object.keys(orderDetail).length) {
+      if (pageCount >= orderDetail?.totalPages) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  };
+
+  const handleItem = useCallback(
+    (data) => {
+      if (pageCount > 1) {
+        setItemList((prev) => [...prev, ...data]);
+      }
+    },
+    [pageCount]
+  );
 
   useEffect(() => {
     const headers = { Authorization: `Bearer ${isAuth.token}` };
-    const getOrders = async () => {
+    const getOrderContent = async () => {
       try {
         const res = await baseApi.get(
-          `/order${isSearch ? "?merchandiseName=" + isSearch : ""}`,
-          { headers }
+          `/order?page=${pageCount}&limit=6&reference=${isSearch}`,
+          {
+            headers,
+          }
         );
-        setItemList(res.data.results);
+        if (pageCount <= 1) {
+          setOrderDetail(res.data);
+          setItemList(res.data.results);
+        } else {
+          handleItem(res.data.results);
+          setIsLoading(false);
+        }
       } catch (error) {
         console.log(error);
       }
     };
-
-    getOrders();
-  }, [isAuth.token, isSearch]);
+    getOrderContent();
+  }, [pageCount, isSearch, handleItem, isAuth]);
 
   return (
     <Container>
@@ -48,6 +81,7 @@ const OrderList = () => {
         <img src={arrow} alt="" />
         <p>Back</p>
       </div>
+
       <Wrapper>
         <div className="nav">
           <h1>Products</h1>
@@ -56,7 +90,7 @@ const OrderList = () => {
           <ListHeader>
             <h2>{toggleView ? "Customer & Order details" : "All Orders"}</h2>
           </ListHeader>
-          {toggleView && viewOrder.length ? (
+          {toggleView && Object.keys(viewOrder).length ? (
             <ViewOrder />
           ) : (
             <ListWrapper>
@@ -66,7 +100,7 @@ const OrderList = () => {
                     <img src={search} alt="" />
                     <input
                       type="text"
-                      placeholder="Filter products"
+                      placeholder="Filter Reference ID"
                       onFocus={onFocus}
                       onBlur={onBlur}
                       value={isSearch}
@@ -79,8 +113,16 @@ const OrderList = () => {
                     setToggleView={setToggleView}
                     itemList={itemList}
                   />
-                ) : null}
+                ) : (
+                  <p className="no-item">No item found</p>
+                )}
               </ListDetail>
+              {isLoading && <p className="loading"> Loading...</p>}
+              {hideBtn() && (
+                <div className="obsevser">
+                  <button onClick={loadMore}>See More</button>
+                </div>
+              )}
             </ListWrapper>
           )}
         </ListWrap>
@@ -113,6 +155,13 @@ const Container = styled.div`
     color: var(--primary-color);
     font-size: 16px;
     font-family: var(--Branding-sf-medium);
+  }
+
+  .no-item {
+    margin-top: 8px;
+    margin-left: 30px;
+    font-family: var(--Branding-sf-light);
+    font-size: 16px;
   }
 `;
 
@@ -189,6 +238,24 @@ const ListDetail = styled.div`
 const ListWrapper = styled.div`
   padding: 20px;
   flex: 1;
+  .loading {
+    margin-top: 8px;
+    text-align: center;
+    font-family: var(--Branding-sf-light);
+    color: var(--primary-color);
+    font-size: 16px;
+  }
+  .obsevser {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    button {
+      margin-top: 12px;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+  }
 `;
 
 const Search = styled.div`

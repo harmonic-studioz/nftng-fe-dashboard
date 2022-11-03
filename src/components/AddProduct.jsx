@@ -3,11 +3,13 @@ import styled from "styled-components";
 import add from "../img/svg/gallery-add.svg";
 import Successful from "./Successful";
 import BaseApi from "../api/baseApi";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectIsAuth } from "../slices/isAuthSlice";
+import { setIsLoading } from "../slices/isLoaderSlice";
 
 const AddProduct = ({ setToggle }) => {
   const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
   const [number, setNumber] = useState("");
   const [sizeslist, setSizesList] = useState([]);
   const [productName, setProductName] = useState("");
@@ -18,7 +20,6 @@ const AddProduct = ({ setToggle }) => {
   const [urlImage, setUrlImage] = useState("");
   const [upLoadedImg, setUpLoadedImg] = useState(null);
   const [successs, setSuccess] = useState(false);
-  console.log(isAuth.token);
 
   const handleAdd = (data) => {
     const exist = sizeslist.some((d) => d === data);
@@ -44,9 +45,10 @@ const AddProduct = ({ setToggle }) => {
   };
 
   const handleAddMerch = async () => {
+    dispatch(setIsLoading(true));
     const headers = { Authorization: `Bearer ${isAuth.token}` };
     try {
-      const res = await BaseApi.post(
+      await BaseApi.post(
         `/merchandise`,
         {
           name: productName || "",
@@ -57,7 +59,7 @@ const AddProduct = ({ setToggle }) => {
         },
         { headers }
       );
-      console.log(res.data);
+      dispatch(setIsLoading(false));
       setSuccess(true);
     } catch (error) {
       console.log(error);
@@ -127,7 +129,7 @@ const AddProduct = ({ setToggle }) => {
             <div className={`number ${priceFocus ? "active-border" : null}`}>
               <span>NGN</span>
               <input
-                type="text"
+                type="number"
                 placeholder="Price"
                 onFocus={() => {
                   setPriceFocus(true);
@@ -140,7 +142,7 @@ const AddProduct = ({ setToggle }) => {
             <div className={`number ${quatityFocus ? "active-border" : null}`}>
               <span>Quantity</span>
               <input
-                type="text"
+                type="number"
                 placeholder="Add numbers"
                 onFocus={() => {
                   setQuatityFocus(true);
