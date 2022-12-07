@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.e876e37b.css",
-    "main.js": "/static/js/main.59f925f1.js",
-    "static/js/168.13f087e7.chunk.js": "/static/js/168.13f087e7.chunk.js",
-    "static/js/749.fbb69f0e.chunk.js": "/static/js/749.fbb69f0e.chunk.js",
-    "static/js/689.a15155f9.chunk.js": "/static/js/689.a15155f9.chunk.js",
+    "main.js": "/static/js/main.b6a7605e.js",
+    "static/js/168.c6ef7823.chunk.js": "/static/js/168.c6ef7823.chunk.js",
+    "static/js/749.160503d7.chunk.js": "/static/js/749.160503d7.chunk.js",
+    "static/js/689.f1f1c80e.chunk.js": "/static/js/689.f1f1c80e.chunk.js",
     "static/js/787.91d67eb7.chunk.js": "/static/js/787.91d67eb7.chunk.js",
     "static/js/684.38061d72.chunk.js": "/static/js/684.38061d72.chunk.js",
     "static/media/LEDCalculator.ttf": "/static/media/LEDCalculator.cccf48e3277f82ae79b8.ttf",
@@ -12,25 +12,25 @@
     "static/media/BrandingSF-Light.ttf": "/static/media/BrandingSF-Light.0bb3c1c6f5a3a2b0c2c2.ttf",
     "static/media/BrandingSF-Medium.ttf": "/static/media/BrandingSF-Medium.adccef0c0c7526983334.ttf",
     "static/media/Helvetica-Neue-LT-Com-83-Heavy-Extended.ttf": "/static/media/Helvetica-Neue-LT-Com-83-Heavy-Extended.eb53344f5765c0d19a03.ttf",
-    "static/media/instagram.svg": "/static/media/instagram.eee0bf5997e1efb5d9251c91f4a7a80c.svg",
+    "static/media/instagram.svg": "/static/media/instagram.3c0803828a22dda54b4a7074b0c4879b.svg",
     "index.html": "/index.html",
-    "static/media/twitter.svg": "/static/media/twitter.6d0f5caec28355f1ba0c379f8f1ab39e.svg",
-    "static/media/gallery-add.svg": "/static/media/gallery-add.eaeee904c3ea229c5e87614a72359301.svg",
-    "static/media/shopping-cart.svg": "/static/media/shopping-cart.9be0a6a20fe27967735e99d72101bbb8.svg",
-    "static/media/edit-2.svg": "/static/media/edit-2.a209a5817c373a64ca7e75e4dfd0a3cb.svg",
+    "static/media/twitter.svg": "/static/media/twitter.2cf6cc9ab71b15ae720f64e8547d6e31.svg",
+    "static/media/gallery-add.svg": "/static/media/gallery-add.87d5007413a24e93151cbd4fc350e5ac.svg",
+    "static/media/shopping-cart.svg": "/static/media/shopping-cart.4b0db8e2b6dacca2bbd587195209ef78.svg",
+    "static/media/edit-2.svg": "/static/media/edit-2.c0995e684479af7f766f64b83991b075.svg",
     "static/media/search-normal.svg": "/static/media/search-normal.acef6290ca15b16cbe270feffc5111f1.svg",
-    "static/media/arrow-left.svg": "/static/media/arrow-left.f46112f07c3bc86c40da6b1d5603e573.svg",
-    "static/media/add.svg": "/static/media/add.d230058af5a82374ef234c41473363ea.svg",
+    "static/media/arrow-left.svg": "/static/media/arrow-left.40b31d4995e0916bf7c5086b90bcc1d5.svg",
+    "static/media/add.svg": "/static/media/add.e3bc0c98a6ada97207c0dc29902a3c78.svg",
     "main.e876e37b.css.map": "/static/css/main.e876e37b.css.map",
-    "main.59f925f1.js.map": "/static/js/main.59f925f1.js.map",
-    "168.13f087e7.chunk.js.map": "/static/js/168.13f087e7.chunk.js.map",
-    "749.fbb69f0e.chunk.js.map": "/static/js/749.fbb69f0e.chunk.js.map",
-    "689.a15155f9.chunk.js.map": "/static/js/689.a15155f9.chunk.js.map",
+    "main.b6a7605e.js.map": "/static/js/main.b6a7605e.js.map",
+    "168.c6ef7823.chunk.js.map": "/static/js/168.c6ef7823.chunk.js.map",
+    "749.160503d7.chunk.js.map": "/static/js/749.160503d7.chunk.js.map",
+    "689.f1f1c80e.chunk.js.map": "/static/js/689.f1f1c80e.chunk.js.map",
     "787.91d67eb7.chunk.js.map": "/static/js/787.91d67eb7.chunk.js.map",
     "684.38061d72.chunk.js.map": "/static/js/684.38061d72.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e876e37b.css",
-    "static/js/main.59f925f1.js"
+    "static/js/main.b6a7605e.js"
   ]
 }

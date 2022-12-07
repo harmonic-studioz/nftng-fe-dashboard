@@ -41,6 +41,7 @@ const ProductDetail = () => {
       try {
         const res = await BaseApi.get("/merchandise");
         setData(res.data.results);
+        console.log(res.data.results);
       } catch (error) {
         console.log(error);
       }
@@ -70,23 +71,32 @@ const ProductDetail = () => {
             </h1>
           </div>
         )}
-        <Wrap toggleEdit={toggleEdit}>
-          {toggleEdit ? (
-            <EditProduct
-              selectedEdit={selectedEdit}
-              setToggleEdit={setToggleEdit}
-            />
-          ) : (
-            <MerchandiseSection
-              data={data}
-              checkAvailability={checkAvailability}
-              handleAddToCart={handleAddToCart}
-              cartValue={cartValue}
-              admin={admin}
-              handleSelect={handleSelect}
-            />
-          )}
-        </Wrap>
+        {data.length ? (
+          <Wrap toggleEdit={toggleEdit}>
+            {toggleEdit ? (
+              <EditProduct
+                selectedEdit={selectedEdit}
+                setToggleEdit={setToggleEdit}
+              />
+            ) : (
+              <MerchandiseSection
+                data={data}
+                checkAvailability={checkAvailability}
+                handleAddToCart={handleAddToCart}
+                cartValue={cartValue}
+                admin={admin}
+                handleSelect={handleSelect}
+              />
+            )}
+          </Wrap>
+        ) : (
+          <NoItems>
+            <p>no item</p>
+            <button onClick={() => navigate("/admin/add-products")}>
+              Add Merchandise
+            </button>
+          </NoItems>
+        )}
       </Wrapper>
       {pathname !== "/products/successful" && <Footer />}
     </Container>
@@ -203,4 +213,24 @@ const Wrapper = styled.div`
 const Wrap = styled.div`
   width: ${(p) => (p.toggleEdit ? "60vw" : "100%")};
   height: 100%;
+`;
+
+const NoItems = styled(Wrap)`
+  background-color: #0000004f;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  p {
+    font-size: 24px;
+    text-transform: capitalize;
+    font-family: var(--Branding-sf-medium);
+  }
+  button {
+    font-size: 16px;
+    padding: 16px;
+    font-family: var(--Branding-sf-medium);
+  }
 `;

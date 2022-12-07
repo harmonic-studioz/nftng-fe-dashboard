@@ -62,26 +62,28 @@ const AddProduct = ({ setToggle }) => {
       dispatch(setIsLoading(false));
       setSuccess(true);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
   useEffect(() => {
-    const upLoadImg = async () => {
-      try {
-        const formData = new FormData();
-        formData.append("images", addImage);
-        if (urlImage) {
+    if (addImage) {
+      const upLoadImg = async () => {
+        dispatch(setIsLoading(true));
+        try {
+          const formData = new FormData();
+          formData.append("images", addImage);
           const res = await BaseApi.post("/uploads", formData);
           setUpLoadedImg(res.data);
-          console.log(res.data);
+          dispatch(setIsLoading(false));
+        } catch (error) {
+          console.log(error.message);
+          dispatch(setIsLoading(false));
         }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    upLoadImg();
-  }, [addImage, urlImage]);
+      };
+      upLoadImg();
+    }
+  }, [addImage, dispatch]);
 
   return (
     <Container>

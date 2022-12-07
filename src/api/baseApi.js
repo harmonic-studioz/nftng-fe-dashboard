@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://dev.api.nftng.com/api",
+  baseURL: "https://api.nftng.com/api",
 });

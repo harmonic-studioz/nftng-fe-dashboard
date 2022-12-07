@@ -10,7 +10,7 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
 
-  const { image, name, price, quantity, images, id, sizes } = selectedEdit;
+  const { image, name, price, quantity, id, sizes } = selectedEdit;
   const [number, setNumber] = useState(price);
   const [sizeslist, setSizesList] = useState(sizes || []);
   const [productName, setProductName] = useState(name);
@@ -20,8 +20,6 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
   const [addImage, setAddImage] = useState("");
   const [urlImage, setUrlImage] = useState(image || "");
   const [upLoadedImg, setUpLoadedImg] = useState([]);
-
-  console.log(selectedEdit);
 
   const handleAdd = (data) => {
     const exist = sizeslist.some((d) => d === data);
@@ -67,7 +65,7 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
         setToggleEdit(false);
         dispatch(setIsLoading(false));
       }
-      const res = await BaseApi.patch(
+      await BaseApi.patch(
         `/merchandise/${id}`,
         {
           name: productName,
@@ -77,11 +75,9 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
         },
         { headers }
       );
-      console.log(res.data);
       setToggleEdit(false);
       dispatch(setIsLoading(false));
     } catch (error) {
-      console.log(error);
       dispatch(setIsLoading(false));
     }
   };
@@ -108,7 +104,6 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
           formData.append("images", addImage);
 
           const res = await BaseApi.post("/uploads", formData);
-          console.log(res.data);
           setUpLoadedImg(res.data);
           dispatch(setIsLoading(false));
         } catch (error) {
@@ -119,7 +114,7 @@ const EditProduct = ({ selectedEdit, setToggleEdit }) => {
 
       upLoadImg();
     }
-  }, [addImage]);
+  }, [addImage, dispatch]);
 
   return (
     <Container>

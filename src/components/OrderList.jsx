@@ -58,12 +58,14 @@ const OrderList = () => {
             headers,
           }
         );
+        if (isSearch.length) return setItemList(res.data.results);
         if (pageCount <= 1) {
           setOrderDetail(res.data);
-          setItemList(res.data.results);
+          return setItemList(res.data.results);
         } else {
           handleItem(res.data.results);
           setIsLoading(false);
+          return;
         }
       } catch (error) {
         console.log(error);

@@ -11,9 +11,9 @@ import Footer from "./Footer";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassWord] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   const handleLog = async () => {
     dispatch(setIsLoading(true));
@@ -22,13 +22,15 @@ const Login = () => {
         email,
         password,
       });
+
+      setErrMessage("");
       dispatch(setIsAuth(res.data));
       dispatch(setIsLoading(false));
       navigate("/admin");
-      // console.log(res.data);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       dispatch(setIsLoading(false));
+      setErrMessage(error.message);
     }
   };
 
@@ -59,6 +61,7 @@ const Login = () => {
               login
             </button>
           </div>
+          {errMessage && <p className="err">{errMessage}</p>}
         </Form>
       </Wrapper>
       <Footer />
@@ -88,6 +91,7 @@ const Form = styled.div`
   width: 520px;
   padding: 80px;
   height: 400px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -120,5 +124,14 @@ const Form = styled.div`
     border-radius: 5px;
     font-size: 14px;
     font-family: var(--Branding-sf-light);
+  }
+  .err {
+    position: absolute;
+    bottom: 50px;
+    font-family: var(--Branding-sf-mediun);
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    color: #d8000bf5;
   }
 `;
