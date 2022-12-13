@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Footer from "./Footer";
 import hand from "../img/Waving Hand.png";
 import profile from "../img/profile.png";
+import gallery from "../img/svg/gallery.svg";
 import plus from "../img/svg/add.svg";
 import pen from "../img/svg/edit-2.svg";
 import cart from "../img/svg/shopping-cart.svg";
@@ -55,6 +56,12 @@ const DashBoard = () => {
                 <span>Orders</span>
               </div>
             </div>
+            <div className="d-wrap">
+              <div className="label" onClick={() => navigate("/admin/orders")}>
+                <img src={gallery} alt="" />
+                <span>Gallery</span>
+              </div>
+            </div>
           </Desc>
         </Wrapper>
       </Container>
@@ -93,7 +100,7 @@ const Desc = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 0 18vw;
+  padding: 0 8vw;
   width: 100%;
   .d-wrap {
     border: 1px solid var(--primary-color);
@@ -112,13 +119,16 @@ const Desc = styled.div`
     width: fit-content;
     padding: 18px;
     cursor: pointer;
-    gap: 6px;
+    gap: 10px;
     border-radius: 10px;
 
     span {
       font-size: 18px;
       font-family: var(--Branding-sf-bold);
       color: var(--primary-color);
+    }
+    img {
+      width: 40px;
     }
   }
 `;

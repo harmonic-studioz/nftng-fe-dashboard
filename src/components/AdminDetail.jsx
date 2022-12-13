@@ -1,25 +1,27 @@
-import React from "react";
-import ProductPass from "./ProductPass";
-import ProductDetail from "./ProductDetail";
-import OrderList from "./OrderList";
+import React, { lazy, Suspense } from "react";
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+const ProductPass = lazy(() => import("./ProductPass"));
+const ProductDetail = lazy(() => import("./ProductDetail"));
+const OrderList = lazy(() => import("./OrderList"));
 
 const AdminDetail = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   return (
     <Container>
-      {pathname === "/admin/add-products" ? (
-        <ProductPass />
-      ) : pathname === "/admin/edit-products" ? (
-        <ProductDetail />
-      ) : pathname === "/admin/orders" ? (
-        <OrderList />
-      ) : (
-        navigate("/not-found")
-      )}
+      <Suspense fallback={<>...</>}>
+        {pathname === "/admin/add-products" ? (
+          <ProductPass />
+        ) : pathname === "/admin/edit-products" ? (
+          <ProductDetail />
+        ) : pathname === "/admin/orders" ? (
+          <OrderList />
+        ) : (
+          navigate("/not-found")
+        )}
+      </Suspense>
       {pathname !== "/admin/edit-products" && <Footer />}
     </Container>
   );

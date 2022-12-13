@@ -24,7 +24,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Suspense fallback={""}>
+            <Suspense fallback={<>...</>}>
               <Login isAuth={isAuth} />
             </Suspense>
           }
@@ -33,7 +33,7 @@ function App() {
           <Route
             path="/admin"
             element={
-              <Suspense fallback={""}>
+              <Suspense fallback={<>...</>}>
                 <DashBoard />
               </Suspense>
             }
@@ -41,7 +41,7 @@ function App() {
           <Route
             path="/admin/:id"
             element={
-              <Suspense fallback={""}>
+              <Suspense fallback={<>...</>}>
                 <AdminDetail />
               </Suspense>
             }

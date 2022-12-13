@@ -41,14 +41,13 @@ const ProductDetail = () => {
       try {
         const res = await BaseApi.get("/merchandise");
         setData(res.data.results);
-        console.log(res.data.results);
       } catch (error) {
         console.log(error);
       }
     };
 
     handleGetMerch();
-  }, [data]);
+  }, []);
 
   return (
     <Container>
