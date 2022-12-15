@@ -57,7 +57,7 @@ const DashBoard = () => {
               </div>
             </div>
             <div className="d-wrap">
-              <div className="label" onClick={() => navigate("/admin/orders")}>
+              <div className="label" onClick={() => navigate("/admin/gallery")}>
                 <img src={gallery} alt="" />
                 <span>Gallery</span>
               </div>

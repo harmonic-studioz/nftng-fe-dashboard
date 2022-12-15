@@ -5,6 +5,7 @@ import Footer from "./Footer";
 const ProductPass = lazy(() => import("./ProductPass"));
 const ProductDetail = lazy(() => import("./ProductDetail"));
 const OrderList = lazy(() => import("./OrderList"));
+const Gallery = lazy(() => import("./Gallery"));
 
 const AdminDetail = () => {
   const { pathname } = useLocation();
@@ -18,6 +19,8 @@ const AdminDetail = () => {
           <ProductDetail />
         ) : pathname === "/admin/orders" ? (
           <OrderList />
+        ) : pathname === "/admin/gallery" ? (
+          <Gallery />
         ) : (
           navigate("/not-found")
         )}
