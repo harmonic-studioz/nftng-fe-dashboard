@@ -1,16 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.e876e37b.css",
-    "main.js": "/static/js/main.8f77a122.js",
+    "main.js": "/static/js/main.b29559d8.js",
     "static/js/168.c6ef7823.chunk.js": "/static/js/168.c6ef7823.chunk.js",
-    "static/js/622.b5934494.chunk.js": "/static/js/622.b5934494.chunk.js",
-    "static/js/686.06ae2d92.chunk.js": "/static/js/686.06ae2d92.chunk.js",
+    "static/js/622.466dc844.chunk.js": "/static/js/622.466dc844.chunk.js",
+    "static/js/686.3134b2be.chunk.js": "/static/js/686.3134b2be.chunk.js",
     "static/js/787.91d67eb7.chunk.js": "/static/js/787.91d67eb7.chunk.js",
     "static/js/724.8a5a4f9d.chunk.js": "/static/js/724.8a5a4f9d.chunk.js",
     "static/js/23.3c0204d6.chunk.js": "/static/js/23.3c0204d6.chunk.js",
     "static/js/599.3e3502ec.chunk.js": "/static/js/599.3e3502ec.chunk.js",
+    "static/js/461.1e5a1838.chunk.js": "/static/js/461.1e5a1838.chunk.js",
     "static/js/684.38061d72.chunk.js": "/static/js/684.38061d72.chunk.js",
     "static/media/LEDCalculator.ttf": "/static/media/LEDCalculator.cccf48e3277f82ae79b8.ttf",
+    "static/media/photo3.png": "/static/media/photo3.25d9a249f1dd94f400dd.png",
+    "static/media/photo1.png": "/static/media/photo1.6ee9eb61d53a02c37614.png",
+    "static/media/photo2.png": "/static/media/photo2.6db5cae642cb7a83cb5d.png",
+    "static/media/photo5.png": "/static/media/photo5.626f528da99e8d853696.png",
+    "static/media/photo4.png": "/static/media/photo4.5d57f7f1f164cdac4f8d.png",
     "static/media/BrandingSF-Bold.ttf": "/static/media/BrandingSF-Bold.a61199b641280c29c470.ttf",
     "static/media/BrandingSF-Light.ttf": "/static/media/BrandingSF-Light.0bb3c1c6f5a3a2b0c2c2.ttf",
     "static/media/BrandingSF-Medium.ttf": "/static/media/BrandingSF-Medium.adccef0c0c7526983334.ttf",
@@ -26,18 +32,19 @@
     "static/media/arrow-left.svg": "/static/media/arrow-left.40b31d4995e0916bf7c5086b90bcc1d5.svg",
     "static/media/add.svg": "/static/media/add.e3bc0c98a6ada97207c0dc29902a3c78.svg",
     "main.e876e37b.css.map": "/static/css/main.e876e37b.css.map",
-    "main.8f77a122.js.map": "/static/js/main.8f77a122.js.map",
+    "main.b29559d8.js.map": "/static/js/main.b29559d8.js.map",
     "168.c6ef7823.chunk.js.map": "/static/js/168.c6ef7823.chunk.js.map",
-    "622.b5934494.chunk.js.map": "/static/js/622.b5934494.chunk.js.map",
-    "686.06ae2d92.chunk.js.map": "/static/js/686.06ae2d92.chunk.js.map",
+    "622.466dc844.chunk.js.map": "/static/js/622.466dc844.chunk.js.map",
+    "686.3134b2be.chunk.js.map": "/static/js/686.3134b2be.chunk.js.map",
     "787.91d67eb7.chunk.js.map": "/static/js/787.91d67eb7.chunk.js.map",
     "724.8a5a4f9d.chunk.js.map": "/static/js/724.8a5a4f9d.chunk.js.map",
     "23.3c0204d6.chunk.js.map": "/static/js/23.3c0204d6.chunk.js.map",
     "599.3e3502ec.chunk.js.map": "/static/js/599.3e3502ec.chunk.js.map",
+    "461.1e5a1838.chunk.js.map": "/static/js/461.1e5a1838.chunk.js.map",
     "684.38061d72.chunk.js.map": "/static/js/684.38061d72.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e876e37b.css",
-    "static/js/main.8f77a122.js"
+    "static/js/main.b29559d8.js"
   ]
 }
